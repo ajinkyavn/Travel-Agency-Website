@@ -6,7 +6,7 @@
     
     $conn = mysqli_connect('localhost','root','','dbms') or die("Connection Failed :".mysqli_connect_error());
 
-    $curr_user='';
+    // $curr_user='devendra';
 
     function gotohome(){
         echo "<script language='javascript'>";

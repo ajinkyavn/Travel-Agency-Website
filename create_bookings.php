@@ -40,14 +40,14 @@ if ($mysqli->connect_error) {
     function goback(){
         echo "<script language='javascript'>";
         echo "document.location.href= 'create_bookings.php'";
-        // echo "alert('No user found !!')";
+        echo "alert('Booking successful !!')";
         echo "</script>";
     }
 
     if($_SERVER['REQUEST_METHOD']=='POST'){
        
 
-        if(isset($_POST['source']) && isset($_POST['destination']) && isset($_POST['dod']) && isset($_POST['dor']) && isset($_POST['mode']) ){
+        if(isset($_POST['source']) && isset($_POST['destination']) && isset($_POST['dod']) && isset($_POST['dor']) && isset($_POST['mode']) && isset($_POST['email']) && isset($_POST['hotel']) && isset($_POST['people'])){
             $source = test_input($_POST['source']);
             $today =  date("Y-m-d");
             $destination = test_input($_POST['destination']);
@@ -56,12 +56,20 @@ if ($mysqli->connect_error) {
             $temp = strtotime($dod) - strtotime($dor);
             $difference = abs(round($temp / 86400));
             $mode = test_input($_POST['mode']);
-            $email = $curr_user;
-            $people = 7;
+            $email = test_input($_POST['email']);
+            $hotel = test_input($_POST['hotel']);
+            $people =test_input($_POST['people']) ;
 
             $sql = "INSERT INTO `bookings` (`email`,`date_book`,`date_depart`,`date_return`,`no_days`,`from`,`destination`,`people`) VALUES ('$email','$today','$dod','$dor','$difference','$source','$destination','$people')";
 
             // $sql = " SELECT * FROM customer_info ";
+            $result = $mysqli->query($sql);
+
+            $i=rand(1,50);
+            $j=rand(51,100);
+
+            $sql = "INSERT INTO `hotels` (`emailID`,`destination`,`hotelID`,`roomID`,`checkin`,`checkout`) VALUES ('$email','$destination','$i','$j','$dod','$dor')";
+
             $result = $mysqli->query($sql);
 
 
@@ -75,9 +83,11 @@ if ($mysqli->connect_error) {
             // }
 
             if($mode == 'bus'){
-                $sql = "INSERT INTO `bus` (`emailID`,`source`,`destination`) VALUES ('$email','$source','$destination')";
-                // $query = mysqli_query($conn,$sql);
-                $result = $mysqli->query($sql);
+                $i=rand(1,50);
+                    $j=rand(51,100);
+                    $sql = "INSERT INTO `bus` (`emailID`, `busID`, `seatID`, `source`, `destination`) VALUES ('$email','$i','$j','$source','$destination')";
+                    // echo 'Hello';
+                    $result = $mysqli->query($sql);
                 // if($query){
                 //     goback();
                 //     }
@@ -88,8 +98,9 @@ if ($mysqli->connect_error) {
             }
             elseif ($mode == 'flight') {
 
-                
-                    $sql = "INSERT INTO `flights` (`emailID`,`source`,`destination`) VALUES ('$email','$source','$destination')";
+                    $i=rand(1,50);
+                    $j=rand(51,100);
+                    $sql = "INSERT INTO `flights` (`emailID`, `flightID`, `seatID`, `source`, `destination`) VALUES ('$email','$i','$j','$source','$destination')";
                     // echo 'Hello';
                     $result = $mysqli->query($sql);
                     // $query = mysqli_query($conn,$sql);
@@ -104,8 +115,13 @@ if ($mysqli->connect_error) {
                 
             }
             elseif($mode == 'train'){
-                $sql = "INSERT INTO `train` (`emailID`,`source`,`destination`) VALUES ('$email','$source','$destination')";
-                $query = mysqli_query($conn,$sql);
+                
+                $i=rand(1,50);
+                    $j=rand(51,100);
+                    $sql = "INSERT INTO `train` (`emailID`, `trainID`, `seatID`, `source`, `destination`) VALUES ('$email','$i','$j','$source','$destination')";
+                    // echo 'Hello';
+                    $result = $mysqli->query($sql);
+                // $query = mysqli_query($conn,$sql);
                 // if($query){
                 //     // echo "success";
                 //     goback();
@@ -114,6 +130,10 @@ if ($mysqli->connect_error) {
                 //     echo 'Error occured';
                 // }
             }
+
+
+            goback();
+        
         }
     }
 

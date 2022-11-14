@@ -2,7 +2,7 @@
 
 include 'login.php';
 include 'config.php';
-
+// include 'middle.php';
 
 // session_start();
 // $temp = $_SESSION['superhero'];
@@ -10,8 +10,11 @@ include 'config.php';
 // echo $_SESSION['superhero'] ;
 $conn = mysqli_connect('localhost','root','','dbms') or die("Connection Failed :".mysqli_connect_error());
 
-$temp = 'devendramukane@gmail.com';
-$email = '';
+
+
+$temp = 'ajju@gmail.com';
+
+//$email = '';
 // $temp = $curr_user;
 
 $query = ' SELECT * FROM `bus`';
@@ -19,11 +22,13 @@ $query = ' SELECT * FROM `bus`';
         $array = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         // print_r($array);
+        $i=0;
 
         if(count($array)!=0){
 
           foreach($array as $user){
             if($user['emailID']==$temp){
+              $i++;
               $email = $user['emailID'];
               $b_seat = $user['seatID'];
               $b_bus = $user['busID'];
@@ -34,7 +39,7 @@ $query = ' SELECT * FROM `bus`';
           }
         }
 
-        else{
+        if($i==0){
 
               $b_seat = '--';
               $b_bus ='--';
@@ -45,16 +50,54 @@ $query = ' SELECT * FROM `bus`';
 
         
 
-$query = ' SELECT * FROM `train`';
+$query = ' SELECT * FROM `hotels` ';
         $result = mysqli_query($conn,$query);
         $array = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         // print_r($array);
+        $i=0;
 
         if(count($array)!=0){
 
           foreach($array as $user){
             if($user['emailID']==$temp){
+              $i++;
+              $email = $user['emailID'];
+              $hotelID = $user['hotelID'];
+              $roomID = $user['roomID'];
+              $place = $user['destination'];
+              $chin = $user['checkin'];
+              $chou = $user['checkout'];
+
+              // echo ($email. $hotelID. $place. $chin. $chou);
+            }
+          }
+        }
+
+        if($i==0){
+
+              $hotelID = '--';
+              $roomID ='--';
+              $place = '--';
+              $chin = '--';
+              $chou = '--';
+
+
+        }
+
+
+$query = ' SELECT * FROM `train`';
+        $result = mysqli_query($conn,$query);
+        $array = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        // print_r($array);
+        $i=0;
+        if(count($array)!=0){
+
+          foreach($array as $user){
+          
+            if($user['emailID']==$temp){
+              $i++;
               $email = $user['emailID'];
               $t_seat = $user['seatID'];
               $t_train = $user['trainID'];
@@ -65,7 +108,7 @@ $query = ' SELECT * FROM `train`';
           }
         }
 
-        else{
+        if($i==0){
 
               $t_seat = '--';
               $t_train ='--';
@@ -81,11 +124,12 @@ $query = ' SELECT * FROM `flights`';
         $array = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         // print_r($array);
-
+        $i=0;
         if(count($array)!=0){
 
           foreach($array as $user){
             if($user['emailID']==$temp){
+              $i++;
               $email = $user['emailID'];
               $f_seat = $user['seatID'];
               $f_flight = $user['flightID'];
@@ -96,7 +140,7 @@ $query = ' SELECT * FROM `flights`';
           }
         }
 
-        else{
+        if($i==0){
 
               $f_seat = '--';
               $f_flight ='--';
@@ -151,27 +195,27 @@ $query = ' SELECT * FROM `flights`';
                 <caption>Hotels</caption>
                 <tr>
                     <th>Hotel ID</th>
-                  <th>Enter from DB</th>
+                  <th><?php include_once('mybookings.php');echo $hotelID;?></th>
                 </tr>
                 <tr>
                     <td>Hotel Name</td>
-                    <td>Enter from DB</td>
+                    <td>Travelingo Hotel</td>
                 </tr>
                 <tr>
                   <td>Room ID</td>
-                  <td>Enter from DB</td>
+                  <td><?php include_once('mybookings.php');echo $roomID;?></td>
                 </tr>
                 <tr>
                     <td>Place</td>
-                    <td>Enter from DB</td>
+                    <td><?php include_once('mybookings.php');echo $place;?></td>
                 </tr>
                 <tr>
-                    <td>Time of CheckIn</td>
-                    <td>Enter from DB</td>
+                    <td>Date of CheckIn</td>
+                    <td><?php include_once('mybookings.php');echo $chin;?></td>
                 </tr>
                 <tr>
-                  <td>Time of CheckOut</td>
-                  <td>Enter from DB</td>
+                  <td>Date of CheckOut</td>
+                  <td><?php include_once('mybookings.php');echo $chou;?></td>
                 </tr>
               </table>
             </div>
@@ -188,7 +232,7 @@ $query = ' SELECT * FROM `flights`';
                 <tr>
                     <td>Train Name</td>
                     <td>
-                   <?php include_once('mybookings.php');echo $email;?> 
+                   Travelingo Train
 
                     </td>
                 </tr>
@@ -243,7 +287,7 @@ $query = ' SELECT * FROM `flights`';
                 <tr>
                   <td>Flight Name</td>
                   <td>
-                   <?php include_once('mybookings.php');echo $email;?> 
+                   Travelingo Flights
 
                   </td>
                 </tr>
@@ -299,7 +343,8 @@ $query = ' SELECT * FROM `flights`';
                 <tr>
                   <td>Bus Name</td>
                   <td>                  
-                    <?php include_once('mybookings.php'); echo $email;?> 
+                    
+                  Travelingo Buses
                   </td>
                 </tr>
                 <tr>

@@ -30,23 +30,25 @@
         <div class="MakeBooking" id="MakeBooking">
             <div class="title2">Make a Booking</div>
             <form action="create_bookings.php" method='post'>
+            <input type="email" placeholder="Email" name = "email" class="response">
                 <input type="text" placeholder="Source" name = "source" class="response">
                 <input type="text" name = "destination" placeholder="Destination" class="response">
                 <div class="labels">Date of Departure</div>
                 <input type="date" name = "dod" class="response">
                 <div class="labels">Date of Return</div>
                 <input type="date" name="dor" class="response">
-                <select class="selalign" id="Hotels">
+                <select class="selalign" name="hotel" id="Hotels">
                     <option value="none" selected disabled hidden>Hotels</option>
-                    <option value="0star">0star</option>
-                    <option value="1star">1star</option>
-                    <option value="2star">2star</option>
-                    <option value="3star">3star</option>
-                    <option value="4star">4star</option>
-                    <option value="5star">5star</option>
-                    <option value="6star">6star</option>
-                    <option value="7star">7star</option>
+                    <option value="0">0star</option>
+                    <option value="1">1star</option>
+                    <option value="2">2star</option>
+                    <option value="3">3star</option>
+                    <option value="4">4star</option>
+                    <option value="5">5star</option>
+                    <option value="6">6star</option>
+                    <option value="7">7star</option>
                 </select>
+                <input type="number" name = "people" placeholder="Number of people" class="response">
                 <div class="labels"></div>
                 <select class="selalign" name = 'mode' id="discounts">
                     <option value="none" selected disabled hidden>Mode of transport</option>
