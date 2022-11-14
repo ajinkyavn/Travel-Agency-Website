@@ -56,7 +56,7 @@
                     <option value="train">Trains</option>
                     <option value="flight">Flights</option>
                 </select>
-                <button type="submit" name="btn_sub" class="response" onclick = "isValid()"> Submit </button>
+            <button type="submit" name="btn_sub" class="response" onclick = "isValid()"> Submit </button>
             </form>
         </div>
     </div>

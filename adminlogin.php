@@ -10,36 +10,23 @@
 <!-- partial:index.partial.html -->
 <div id="bg"></div>
 
-
-<form action = "login.php" method = "post"> 
-
+<form action = "validate.php" method = "post">
   <div class = "logo">
     <center>
       <img src = "icons/logo.png" position = "center">
     </center>
   </div>
   <div class="form-field">
-    <input type="email" placeholder="Email " name ="mail" required/>
+    <input type="text" placeholder="Email " name ="username" required/>
   </div>
   
   <div class="form-field">
-    <input type="password" placeholder="Password" name = "pass" required/>                         </div>
+    <input type="password" placeholder="Password" name = "password" required/>                         </div>
   
   <div class="form-field">
     <button class="btn" type="submit" id="direct" onclick="isValid()">Log in</button>
   </div>
-  <div class="form-field" id = 'last_text'>
-    <center>
-      Don't have an account ? <br> <a href="signup.php" >Sign in</a>
-    </center>
-    
-  </div>
-  <div class="form-field" id = 'last' >
-    <center>
-      <a href="adminlogin.php" >ADMIN</a>
-    </center>
-    
-  </div>
+  
 </form>
 <!-- partial -->
 </body>
