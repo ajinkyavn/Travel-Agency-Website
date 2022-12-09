@@ -1,0 +1,18 @@
+.connect h1{
+    text-align: center;
+}
+.logos{
+    margin-left: 5em;
+}
+.bgground{
+    content: "";
+    background-image: url("./images/background1.jpg");
+    position: absolute;
+    top:16.5em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120%;
+    z-index: -1;
+    opacity: 0.3;
+}
