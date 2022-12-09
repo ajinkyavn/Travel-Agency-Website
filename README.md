@@ -66,8 +66,11 @@ TRAVEL AGENCY WEBSITE
 1. Check in date
 1. Check out date
 
-1. ER Diagram
-![Aspose Words 0e0a10aa-3806-462a-8b93-738e017de712 001](https://user-images.githubusercontent.com/102985520/206652828-9682bc7f-ddfd-45e2-949d-bc23dd4efc82.jpeg)
+*ER Diagram*
+
+
+![Aspose Words 0e0a10aa-3806-462a-8b93-738e017de712 001](https://user-images.githubusercontent.com/102985520/206653314-0d65de11-455b-4647-bba8-36165dab0a9d.jpeg)
+![Aspose Words 0e0a10aa-3806-462a-8b93-738e017de712 002](https://user-images.githubusercontent.com/102985520/206653347-ffe96229-9eff-44c0-b959-d7b0b4ee5dc6.jpeg)
 
 ![](Aspose.Words.0e0a10aa-3806-462a-8b93-738e017de712.001.jpeg)
 
@@ -75,18 +78,19 @@ TRAVEL AGENCY WEBSITE
 
 
 
+*Relational Schema*
 
-
-
-1. Relational Schema
-
+![Aspose Words 0e0a10aa-3806-462a-8b93-738e017de712 003](https://user-images.githubusercontent.com/102985520/206653388-365b9bf7-9387-46f0-9004-842b629f99e7.jpeg)
 
 
 ![](Aspose.Words.0e0a10aa-3806-462a-8b93-738e017de712.003.jpeg)
 
 
 
-1. Functional Dependencies
+*Functional Dependencies*
+
+
+![Aspose Words 0e0a10aa-3806-462a-8b93-738e017de712 004](https://user-images.githubusercontent.com/102985520/206653440-498d3f77-4d15-46c5-a7a1-a0a13fd33029.jpeg)
 
 ![](Aspose.Words.0e0a10aa-3806-462a-8b93-738e017de712.004.jpeg)
 
